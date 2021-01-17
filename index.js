@@ -19,9 +19,13 @@ const xray = require("x-ray")(xrayOptions);
 xray("https://pikalytics.com/", ".pokedex_entry", [
     {
         name: "@data-name | escapeName",
-        // stats: xray("a@href", {value: "#bstats_wrapper > div > div > div > div"}),
         info: xray("a@href", {
-            stats: xray("#bstats_wrapper > div > div > div", [{ name: "div:first-child", value: "div:nth-child(3)" }]),
+            stats: xray("#bstats_wrapper > div > div > div", [
+                {
+                    name: "div:first-child",
+                    value: "div:nth-child(3)"
+                }]
+            ),
             moves: xray("#moves_wrapper > div > div", [
                 {
                     name: "div:first-child@text",
